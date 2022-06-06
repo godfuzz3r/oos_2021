@@ -1,0 +1,140 @@
+ps xaf
+ps xawf -eo pid,user,cgroup,args
+systemd-cgls
+ls /usr/lib/systemd/system/
+ls /run/systemd/system/
+ls /etc/systemd/system/
+systemctl -t help
+systemctl status
+systemctl --type=service
+systemctl status auditd.service
+systemctl status firewalld.service
+systemctl is-active auditd.service
+systemctl is-active firewalld.service
+systemctl is-enabled auditd.service
+systemctl is-enabled firewalld.service
+systemctl list-dependencies --after auditd.service
+systemctl list-dependencies --after firewalld.service
+systemctl list-dependencies --before auditd.service
+systemctl list-dependencies --before firewalld.service
+systemctl list-units --type=service
+systemctl list-units --type=service --all
+systemctl list-units --type=socket --all
+systemctl list-units --type=target --all
+systemctl list-units --type=device --all
+systemctl list-units --type=mount --all
+systemctl list-units --type=automount --all
+systemctl list-units --type=swap --all
+systemctl list-unit-files --type=service
+systemctl list-unit-files --type=service --all
+systemctl list-unit-files --type=socket --all
+systemctl list-unit-files --type=target --all
+systemctl list-unit-files --type=device --all
+systemctl list-unit-files --type=mount --all
+systemctl list-unit-files --type=automount --all
+systemctl list-unit-files --type=swap --all
+systemctl --failed --type=service
+systemctl --failed --type=socket
+systemctl --failed --type=target
+systemctl --failed --type=device
+systemctl --failed --type=mount
+systemctl --failed --type=automount
+systemctl --failed --type=swap
+curl 127.0.0.1
+sudo reflector --verbose -l 10 -p https --sort rate --save /etc/pacman.d/mirrorlist
+sudo pacman -Suy
+sudo pacman -S apache
+systemctl status httpd.service
+curl 127.0.0.1
+systemctl start httpd.service
+systemctl status httpd.service
+curl 127.0.0.1
+systemctl restart httpd.service
+systemctl status httpd.service
+systemctl stop httpd.service
+systemctl enable httpd.service
+systemctl status httpd.service
+systemctl start httpd.service
+systemctl status httpd.service
+systemctl disable httpd.service
+systemctl mask httpd.service
+systemctl status httpd.service
+systemctl start httpd.service
+systemctl unmask httpd.service
+systemctl list-units --type=target
+systemctl list-units --type=target --all
+systemctl get-default
+ll /etc/systemd/system/default.target
+systemctl set-default multi-user.target
+systemctl isolate multi-user.target
+ll /etc/systemd/system/default.target
+systemctl set-default graphical.target
+systemctl --no-wall rescue
+systemctl --no-wall emergency
+systemctl poweroff
+systemctl halt
+systemctl --no-wall poweroff
+shutdown --poweroff 13:05
+shutdown --halt +2
+shutdown -c
+systemctl --no-wall reboot
+systemctl suspend
+systemctl hibernate
+systemctl default
+journalctl
+journalctl -b
+journalctl --list-boots
+journalctl -b 2
+journalctl --since "2022-06-06 8:00:00"
+journalctl --since yesterday
+journalctl --since today
+journalctl -u network.service
+journalctl -f
+journalctl -k
+journalctl -p err
+journalctl --disk-usage
+hostnamectl
+hostnamectl set-hostname --static tecatech_alpha
+hostnamectl
+hostnamectl set-hostname tecatech_alpha
+hostnamectl
+hostnamectl set-hostname --transient tecatech_alpha
+hostnamectl
+hostnamectl set-hostname --pretty tecatech_alpha
+hostnamectl
+hostnamectl set-hostname server -H root@172.102.2.24
+timedatectl
+timedatectl status
+systemctl stop systemd-timesyncd
+nano /etc/systemd/timesyncd.conf
+systemctl start systemd-timesyncd
+timedatectl list-timezones
+timedatectl set-timezone UTC
+timedatectl set-timezone "Europe/Moscow"
+timedatectl set-time 23:50:30
+systemctl disable --now chronyd
+timedatectl set-time 2020-07-10
+timedatectl set-time '2020-07-10 11:45:20'
+timedatectl set-local-rtc 1
+timedatectl set-local-rtc 0
+timedatectl set-ntp on
+timedatectl set-ntp off
+localectl
+localectl status
+localectl list-locales
+localectl set-locale LANG="C.UTF-8"
+localectl
+localectl set-locale LANG="ru_RU.utf8"
+localectl list-keymaps
+localectl set-keymap cz
+localectl set-x11-keymap cz
+localectl --no-convert set-x11-keymap cz
+loginctl
+loginctl status
+loginctl list-sessions
+loginctl list-users
+loginctl
+loginctl kill-user alpha
+loginctl terminate-user gamma
+loginctl kill-session 2
+loginctl terminate-session 3

@@ -1,0 +1,23 @@
+[tecatexas@10 ~]$ vim app.py
+[tecatexas@10 ~]$ python3 app.py
+[tecatexas@10 ~]$ curl -v http://127.0.0.1/1337
+Web App with Python Flask!
+[tecatexas@10 ~]$ sudo vim /etc/systemd/system/godfuzz3r.service
+[tecatexas@10 ~]$ sudo chmod 664 /etc/systemd/system/godfuzz3r.service
+[tecatexas@10 ~]$ systemctl daemon-reload
+[tecatexas@10 ~]$ systemctl status godfuzz3r
+[tecatexas@10 ~]$ systemctl start godfuzz3r
+[tecatexas@10 ~]$ systemctl status godfuzz3r
+[tecatexas@10 ~]$ curl -v http://127.0.0.1/1337
+Web App with Python Flask!
+[tecatexas@10 ~]$ ls -lZ /etc/systemd/system/godfuzz3r.service
+-rw-r--r--. 1 root root unconfined_u:object_r:systemd_unit_file_t:s0 240 Mar 11 23:03 /etc/systemd/system/tecatech.service
+[tecatexas@10 ~]$ systemctl stop godfuzz3r
+[tecatexas@10 ~]$ systemctl status godfuzz3r
+[tecatexas@10 ~]$ journalctl -f -u godfuzz3r
+-- Logs begin at Fri 2022-03-11 23:15:05 MSK. --
+Mar 11 23:16:44 10.0.2.15 systemd[1]: Started Simple Flask Server.
+Mar 11 23:21:47 10.0.2.15 systemd[1]: Stopping Simple Flask Server...
+Mar 11 23:21:47 10.0.2.15 systemd[1]: godfuzz3r.service: Succeeded.
+Mar 11 23:21:47 10.0.2.15 systemd[1]: Stopped Simple Flask Server.
+[tecatexas@10 ~]$ systemctl enable godfuzz3r

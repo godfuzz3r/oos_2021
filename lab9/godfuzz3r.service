@@ -1,0 +1,14 @@
+[Unit]
+Description=Simple Flask Server
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=godfuzz3r
+ExecStart=/usr/bin/env python3 /home/godfuzz3r/oos_2021/lab9/app.py
+
+[Install]
+WantedBy=multi-user.target
