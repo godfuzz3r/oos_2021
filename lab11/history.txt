@@ -1,0 +1,13 @@
+yum install autoconf automake bison elfutils-libelf-devel flex ftp gcc gcc-c++ libtool make ncurses-devel openssl-devel rpmdevtools
+uname -r
+rpmdev-setuptree
+yumdownloader --source kernel
+rpm -i kernel-4.18.0-348.20.1.el7.src.rpm
+ls rpmbuild/SPECS/
+ls rpmbuild/SOURCES/
+rpmbuild -bs ~/rpmbuild/SPECS/kernel.spec
+ls ~/rpmbuild/SRPMS/
+yum-builddep /root/rpmbuild/SRPMS/kernel-4.18.0-348.20.1.el7.src.rpm
+rpmbuild -bp --target=$(uname -m) rpmbuild/SPECS/kernel.spec
+cd rpmbuild/BUILD/kernel*/linux*
+ls ~/rpmbuild/BUILD/kernel-4.18.0-348.20.1.el7/linux-4.18.0-348.20.1.el7.x86_64/
